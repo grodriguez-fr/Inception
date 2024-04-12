@@ -5,7 +5,7 @@ echo avant config create
 wp config create --dbname=${SQL_DATABASE} \
    --dbuser=${SQL_USER} \
    --dbpass=${SQL_USER_PASSWORD} \
-   --dbhost=${SQL_HOST} --allow-root \
+   --dbhost=mariadb:3306 --allow-root \
    --path='/var/www/wordpress'
 
 wp core install --allow-root \
