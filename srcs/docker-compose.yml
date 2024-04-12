@@ -13,11 +13,11 @@ services:
     restart: on-failure
     expose:
       - "3306"
-  args:
-     - SQL_ROOT_PASSWORD
-     - SQL_DATABASE
-     - SQL_USER
-     - SQL_USER_PASSWORD
+    args:
+       - SQL_ROOT_PASSWORD
+       - SQL_DATABASE
+       - SQL_USER
+       - SQL_USER_PASSWORD
 
   nginx:
     container_name: nginx
