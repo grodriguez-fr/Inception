@@ -5,7 +5,6 @@ ARG SQL_DATABASE
 ARG SQL_USER
 ARG SQL_USER_PASSWORD
 
-# installations
 RUN apt update -y && \
     apt-get install -y mariadb-server
 
@@ -18,4 +17,4 @@ RUN service mysql start && \
     mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SQL_ROOT_PASSWORD}';" && \
     mysql -e "FLUSH PRIVILEGES;"
 
-CMD [ "mysqld", "--bind-address=0.0.0.0" ]
+CMD [ "mysqld", "--bind-address=0.0.0.0", "--port=3306" ]

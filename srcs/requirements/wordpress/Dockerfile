@@ -14,6 +14,6 @@ RUN mkdir -p /var/www/html && \
 WORKDIR /var/www/html
 
 COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
-COPY conf/config.sh /
+COPY tools/start_wordpress.sh /
 
-CMD ["bash", "/config.sh"]
+CMD ["bash", "/start_wordpress.sh"]
