@@ -14,10 +14,7 @@ wp core install --allow-root \
    --admin_email=$WP_ADMIN_EMAIL
 	
 
-wp user create --allow-root \
-   $WP_USER_LOGIN \
-   $WP_USER_EMAIL \
-   --user_pass=$WP_USER_PASSWORD;
+wp user create $WP_USER_LOGIN $WP_USER_EMAIL --user_pass=$WP_USER_PASSWORD --allow-root;
 
 mkdir -p /run/php
 
