@@ -1,8 +1,15 @@
 FROM debian:buster
 
-ARG 
+ARG SQL_DATABASE
+ARG SAL_USER
+ARG SQL_USER_PASSWORD
+ARG WP_TITLE
+ARG WP_ADMIN_LOGIN
+ARG WP_ADMIN_PASSWORD
+ARG WP_ADMIN_EMAIL
+ARG WP_USER_LOGIN
+ARG WP_USER_EMAIL
 
-# installations
 RUN apt update -y && \
     apt install -y wget php php-mysqli php-fpm mariadb-client
 

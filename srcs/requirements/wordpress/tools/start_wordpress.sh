@@ -1,7 +1,5 @@
 wp core download --allow-root
 
-echo avant config create
-
 wp config create --dbname=${SQL_DATABASE} \
    --dbuser=${SQL_USER} \
    --dbpass=${SQL_USER_PASSWORD} \
