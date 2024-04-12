@@ -1,13 +1,13 @@
 FROM debian:buster
 
 # installations
-RUN apt update -y
-RUN apt upgrade -y
-RUN apt install vim -y
-RUN apt-get install mariadb-server -y
+RUN apt update -y && \
+    apt-get install -y mariadb-server
 
 COPY conf/50-server.cnf	/etc/mysql/mariadb.conf.d/50-server.cnf
 
-COPY ./tools/start.sh /
-RUN chmod +x /start.sh
-CMD [ "./start.sh" ]
+RUN mkdir -p /run/mysqld var/lib/mysql && chmod 777 /run/mysqld && chown mysql:mysql /var/lib/mysql/aria_log_control
+
+COPY tools/start.sh /
+CMD [ "bash", "start.sh" ]
+CMD [ "mysqld" ]

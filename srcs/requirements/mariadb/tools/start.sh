@@ -1,9 +1,18 @@
-#!/bin/bash
 service mysql start
 
-mysql -u root -e "CREATE DATABASE IF NOT EXISTS ${MYSQL_DATABASE};"
-mysql -u root -e "CREATE USER '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';"
-mysql -u root -e "GRANT ALL PRIVILEGES ON ${MYSQL_DATABASE}.* TO ${MYSQL_USER}@'%';"
+#SQL_ROOT_PASSWORD="pass"
+#SQL_DATABASE="mariadb"
+#SQL_USER="user"
+#SQL_USER_PASSWORD="user"
+#SQL_HOST="mariadb:3306"
+#SQL_VOLUME="/var/lib/mysql"
+
+mysql -u root -e "CREATE DATABASE IF NOT EXISTS ${SQL_DATABASE};"
+mysql -u root -e "CREATE USER '${SQL_USER}'@'%' IDENTIFIED BY '${SQL_PASSWORD}';"
+mysql -u root -e "GRANT ALL PRIVILEGES ON ${SQL_DATABASE}.* TO ${SQL_USER}@'%';"
 mysql -u root -e "FLUSH PRIVILEGES;"
-mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';"
-mysqld --bind-address=0.0.0.0 --port=3306
+mysql -u root -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SQL_ROOT_PASSWORD}';"
+
+while ! mysqladmin ping -h"localhost" --silent; do
+    sleep 1
+done
