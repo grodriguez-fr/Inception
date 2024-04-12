@@ -52,16 +52,17 @@ volumes:
   wordpress:
     driver: local
     driver_opts:
-      type: none
-      o: bind
+      type: 'none'
+      o: 'bind'
       device: /home/gurodrig/data/wordpress
   mariadb:
     driver: local
     driver_opts:
-      type: none
-      o: bind
+      type: 'none'
+      o: 'bind'
       device: /home/gurodrig/data/mariadb
 
 networks:
   inception:
+    name: inception
     driver: bridge
