@@ -10,8 +10,9 @@ ARG WP_ADMIN_EMAIL
 ARG WP_USER_LOGIN
 ARG WP_USER_EMAIL
 
-RUN apt update -y && \
-    apt install -y wget php php-mysqli php-fpm
+RUN apt-get update -y && \
+    apt-get upgrade && \
+    apt-get install -y wget php php-mysql php-fpm
 
 RUN mkdir -p /var/www/html && \
     wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \

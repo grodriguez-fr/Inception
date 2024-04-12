@@ -4,7 +4,6 @@ FROM debian:oldstable
 RUN apt update -y && \
     apt upgrade -y && \
     apt install nginx -y && \
-    apt install vim -y && \
     apt install openssl -y
 
 # certifcat creation
