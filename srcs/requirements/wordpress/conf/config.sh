@@ -1,5 +1,7 @@
 wp core download --allow-root
 
+echo avant config create
+
 wp config create --dbname=${SQL_DATABASE} \
    --dbuser=${SQL_USER} \
    --dbpass=${SQL_USER_PASSWORD} \
@@ -18,3 +20,5 @@ wp user create --allow-root \
    ${WP_USER_LOGIN} \
    ${WP_USER_EMAIL} \
    --user_pass=${WP_USER_PASSWORD};
+
+/usr/sbin/php-fpm7.4 --nodaemonize
