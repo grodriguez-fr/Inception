@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:oldstable
 
 ARG SQL_DATABASE
 ARG SAL_USER

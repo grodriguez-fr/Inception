@@ -1,11 +1,12 @@
-FROM debian:buster
+FROM debian:oldstable
 
 ARG SQL_ROOT_PASSWORD
 ARG SQL_DATABASE
 ARG SQL_USER
 ARG SQL_USER_PASSWORD
 
-RUN apt update -y && \
+RUN apt-get update -y && \
+    apt-get upgrade -y && \
     apt-get install -y mariadb-server
 
 # RUN mkdir -p /run/mysqld var/lib/mysql && chmod 777 /run/mysqld && chown mysql:mysql /var/lib/mysql/aria_log_control
