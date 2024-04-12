@@ -10,7 +10,6 @@ RUN apt update -y && \
 RUN mkdir -p /etc/nginx/ssl && \
     openssl req -x509 -nodes -newkey rsa -out /etc/nginx/ssl/inception.crt -keyout /etc/nginx/ssl/inception.key \
     -subj "/C=FR/L=Lyon/O=42/OU=42/CN=gurodrig.42.fr/UID=gurodrig" && \
-    mkdir -p /var/run/nginx
 
 COPY conf/nginx.conf /etc/nginx/site-available/nginx.conf
 
