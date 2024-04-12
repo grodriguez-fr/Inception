@@ -10,6 +10,8 @@ RUN apt update -y && \
 
 RUN mkdir -p /run/mysqld var/lib/mysql && chmod 777 /run/mysqld && chown mysql:mysql /var/lib/mysql/aria_log_control
 
+RUN echo ${SQL_DATABASE}
+
 RUN service mysql start && \
     mysql -e "CREATE DATABASE IF NOT EXISTS ${SQL_DATABASE};" && \
     mysql -e "CREATE USER '${SQL_USER}'@'%' IDENTIFIED BY '${SQL_PASSWORD}';" && \
