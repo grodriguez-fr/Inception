@@ -9,9 +9,9 @@ wp config create --dbname=${SQL_DATABASE} \
 wp core install --allow-root \
    --url=gurodrig.42.fr \
    --title=${WP_TITLE} \
-   --admin_user=${WP_ADMIN_LOGIN} \
-   --admin_password=${WP_ADMIN_PASSWORD} \
-   --admin_email=${WP_ADMIN_EMAIL}
+   --admin_user=$WP_ADMIN_LOGIN \
+   --admin_password=$WP_ADMIN_PASSWORD \
+   --admin_email=$WP_ADMIN_EMAIL
 	
 
 wp user create --allow-root \

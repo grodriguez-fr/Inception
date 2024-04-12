@@ -11,7 +11,7 @@ ARG WP_USER_LOGIN
 ARG WP_USER_EMAIL
 
 RUN apt update -y && \
-    apt install -y wget php php-mysqli php-fpm mariadb-client
+    apt install -y wget php php-mysqli php-fpm
 
 RUN mkdir -p /var/www/html && \
     wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
