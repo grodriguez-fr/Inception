@@ -1,3 +1,5 @@
+if [ -f "./wp-config.php" ]; then
+
 wp core download --allow-root
 
 wp config create --allow-root \
@@ -14,6 +16,10 @@ wp core install --allow-root \
    --admin_email=$WP_ADMIN_EMAIL
 	
 wp user create $WP_USER $WP_USER_EMAIL --user_pass=$WP_USER_PASSWORD --allow-root;
+
+else
+  echo Wordpress already installed
+fi
 
 mkdir -p /run/php
 
