@@ -23,4 +23,4 @@ fi
 
 mkdir -p /run/php
 
-/usr/sbin/php-fpm7.4 --nodaemonize
+php-fpm7.4 -F
