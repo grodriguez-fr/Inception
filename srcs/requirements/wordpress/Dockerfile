@@ -2,7 +2,7 @@ FROM debian:oldstable
 
 RUN apt-get update -y && \
     apt-get upgrade && \
-    apt-get install -y wget php php-mysql php-fpm ca-certificates
+    apt-get install -y wget php php-mysql php-fpm sendmail
 
 RUN mkdir -p /var/www/html && \
     wget https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
@@ -16,4 +16,4 @@ COPY tools/start_wordpress.sh /
 
 EXPOSE 9000
 
-CMD ["bash", "/start_wordpress.sh"]
+CMD ["sh", "/start_wordpress.sh"]

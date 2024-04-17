@@ -9,7 +9,7 @@ services:
       args:
         - SQL_ROOT_PASSWORD
         - SQL_DATABASE
-        - SQL_USER
+        - SQL_USER_LOGIN
         - SQL_USER_PASSWORD
     env_file: .env
     volumes:
@@ -24,7 +24,7 @@ services:
     container_name: nginx
     build: requirements/nginx
     volumes:
-      - wordpress:/var/www/wordpress
+      - wordpress:/var/www/html
     networks:
       - inception
     depends_on:
@@ -39,7 +39,7 @@ services:
     build: requirements/wordpress
     env_file: .env
     volumes:
-      - wordpress:/var/www/wordpress
+      - wordpress:/var/www/html
     networks:
       - inception
     depends_on:

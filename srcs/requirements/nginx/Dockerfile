@@ -18,8 +18,6 @@ COPY conf/nginx.conf /etc/nginx/sites-available/nginx.conf
 
 RUN ln -s /etc/nginx/sites-available/nginx.conf /etc/nginx/sites-enabled/nginx.conf
 
-RUN chmod 777 /var/www/html
-
 EXPOSE 443
 
 CMD [ "nginx", "-g", "daemon off;" ]

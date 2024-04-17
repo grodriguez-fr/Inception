@@ -1,10 +1,10 @@
-if [ -f "./wp-config.php" ]; then
+if [ ! -f "./wp-config.php" ]; then
 
 wp core download --allow-root
 
 wp config create --allow-root \
    --dbname=$SQL_DATABASE \
-   --dbuser=$SQL_USER \
+   --dbuser=$SQL_USER_LOGIN \
    --dbpass=$SQL_USER_PASSWORD \
    --dbhost=mariadb:3306 \
 
@@ -15,7 +15,7 @@ wp core install --allow-root \
    --admin_password=$WP_ADMIN_PASSWORD \
    --admin_email=$WP_ADMIN_EMAIL
 	
-wp user create $WP_USER $WP_USER_EMAIL --user_pass=$WP_USER_PASSWORD --allow-root;
+wp user create $WP_USER_LOGIN $WP_USER_EMAIL --user_pass=$WP_USER_PASSWORD --allow-root;
 
 else
   echo Wordpress already installed
