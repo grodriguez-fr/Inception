@@ -8,7 +8,7 @@ build:
 	docker compose -f $(NAME) build
 
 up:
-	docker compose -f $(NAME) up -d
+	docker compose -f $(NAME) up
 
 down:
 	docker compose -f $(NAME) down
@@ -16,6 +16,8 @@ down:
 clean: down
 	docker system prune -af
 	docker volume prune -f
+	docker volume rm srcs_mariadb
+	docker volume rm srcs_wordpress
 	rm -rf $(VOLUME)
 
 re: clean all
