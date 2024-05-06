@@ -1,7 +1,7 @@
 FROM debian:oldstable
 
 RUN apt-get update -y && \
-    apt-get upgrade && \
+    apt-get upgrade -y && \
     apt-get install -y wget php php-mysql php-fpm sendmail
 
 RUN mkdir -p /var/www/html && \
